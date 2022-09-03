@@ -26,21 +26,31 @@ const articleMarkup = (
   thumbnail_url,
   title,
   total_view,
-  postDetailsId
+  postDetailsId,
+  isDetailed = false
 ) => `
 <article
-          class="single-article flex gap-8 flex-col lg:flex-row p-4 bg-white rounded-lg"
+          class="single-article flex gap-8 flex-col ${
+            isDetailed === true ? "items-center py-12" : "lg:flex-row"
+          } p-4 bg-white rounded-lg"
         >
-          <figure class="flex lg:w-1/4 justify-center lg:justify-start">
+          <figure class="flex ${
+            isDetailed === true ? "justify-center" : "lg:w-1/4 lg:justify-start"
+          } justify-center">
             <picture class="flex">
               <source srcset="${thumbnail_url}" />
               <img
                 src="${thumbnail_url}"
                 alt="article image"
-                class="max-w-xs h-auto rounded object-cover"
+                class="${
+                  isDetailed === true ? "max-w-full" : "max-w-xs"
+                } h-auto rounded object-cover"
                 loading="lazy"
-                width="300"
-                height="400"
+                ${
+                  isDetailed === true
+                    ? `width="600" height="300"`
+                    : `width="300" height="400"`
+                }
                 decoding="async"
                 fetchpriority="low"
               />
@@ -49,7 +59,9 @@ const articleMarkup = (
           <div
             class="article-details flex lg:w-3/4 flex-col gap-4 justify-center"
           >
-            <h2 class="article-title font-bold text-3xl pb-6">${title}</h2>
+            <h2 class="${
+              isDetailed && "text-center"
+            } article-title font-bold text-3xl pb-6">${title}</h2>
             <p class="article-description text-gray-500 pb-6">${details}</p>
             <div class="article-metadata flex flex-wrap gap-8 justify-between">
               <!--#region - start of - author-info -->
@@ -338,7 +350,7 @@ const loadArticleDetails = async postId => {
     const { author, details, image_url, title, total_view, _id } = data.data[0];
     articleReadMoreContainer.insertAdjacentHTML(
       "beforeend",
-      articleMarkup(author, details, image_url, title, total_view, false)
+      articleMarkup(author, details, image_url, title, total_view, false, true)
     );
   } catch (error) {
     console.error(error);
