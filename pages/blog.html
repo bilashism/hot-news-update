@@ -111,16 +111,21 @@
     <!--#region - start of - main -->
     <main class="px-2 sm:px-4 py-8 md:py-16">
       <div class="container flex flex-col gap-8 mx-auto">
+        <!--#region - start of - single article -->
         <article
           class="single-article flex gap-8 flex-col lg:flex-row p-4 bg-white rounded-lg"
         >
           <figure class="flex lg:w-1/4 justify-center lg:justify-start">
             <picture class="flex">
-              <source srcset="https://source.unsplash.com/featured/300x400" />
+              <source
+                srcset="
+                  https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80
+                "
+              />
               <img
-                src="https://source.unsplash.com/featured/300x400"
+                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80"
                 alt="article image"
-                class="max-w-full h-auto rounded object-cover"
+                class="max-w-xs h-auto rounded object-cover"
                 loading="lazy"
                 width="300"
                 height="400"
@@ -130,25 +135,30 @@
             </picture>
           </figure>
           <div
-            class="article-details flex flex-col gap-4 justify-center lg:w-1/8"
+            class="article-details flex lg:w-3/4 flex-col gap-4 justify-center"
           >
             <h2 class="article-title font-bold text-3xl pb-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente,
-              molestiae!
+              Differences among <code>var</code>, <code>let</code>, and
+              <code>const</code>
             </h2>
             <p class="article-description text-gray-500 pb-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nemo
-              alias totam quos distinctio qui fuga rem unde, blanditiis officia.
-              Itaque nisi ab libero possimus vitae modi atque accusamus
-              perspiciatis?
+              Variables declared with <code>var</code> and
+              <code>const</code> are scoped to the immediate function body.
+              Variables declared with the <code>var</code> keyword are hoisted.
+              Hoisting means that the variable can be accessed in their
+              enclosing scope even before they are declared. Variables declared
+              with the <code>let</code> keyword are block-scoped, which means
+              the variables will have scope to the immediate enclosing block.
             </p>
             <div class="article-metadata flex flex-wrap gap-8 justify-between">
               <!--#region - start of - author-info -->
-              <div class="author-info flex items-center gap-4">
+              <div class="lg:w-1/4 author-info flex items-center gap-4">
                 <picture class="flex self-center article-author-image">
-                  <source srcset="https://source.unsplash.com/featured/64x64" />
+                  <source
+                    srcset="https://bilashism.github.io/img/avater-up-640.webp"
+                  />
                   <img
-                    src="https://source.unsplash.com/featured/64x64"
+                    src="https://bilashism.github.io/img/avater-up-640.webp"
                     alt="article author image"
                     class="w-16 h-16 rounded-full object-cover aspect-square"
                     loading="lazy"
@@ -160,14 +170,14 @@
                 </picture>
                 <div class="flex flex-col gap-1">
                   <h3 class="font-bold text-lg article-author-name capitalize">
-                    jhon doe
+                    Md. Taifuzzaman Bilash
                   </h3>
-                  <time class="text-sm text-gray-500">Jan 10, 2022</time>
+                  <time class="text-sm text-gray-500">March 31, 2022</time>
                 </div>
               </div>
               <!--#endregion - end of - author-info -->
               <!--#region - start of - views-info -->
-              <div class="views-info flex items-center gap-4">
+              <div class="lg:w-1/5 views-info flex items-center gap-4">
                 <svg
                   class="w-6 h-6"
                   viewBox="0 0 25 24"
@@ -187,12 +197,12 @@
                 </svg>
                 <span
                   class="view-count uppercase text-gray-600 font-bold text-lg"
-                  >1.5M</span
+                  >1.5k</span
                 >
               </div>
               <!--#endregion - end of - views-info -->
               <!--#region - start of - reviews-info -->
-              <div class="reviews-info flex items-center gap-2">
+              <div class="lg:w-1/4 reviews-info flex items-center gap-2">
                 <svg
                   class="w-6 h-6"
                   viewBox="0 0 21 21"
@@ -257,16 +267,23 @@
             </div>
           </div>
         </article>
+        <!--#endregion - end of - single article -->
+
+        <!--#region - start of - single article -->
         <article
           class="single-article flex gap-8 flex-col lg:flex-row p-4 bg-white rounded-lg"
         >
           <figure class="flex lg:w-1/4 justify-center lg:justify-start">
             <picture class="flex">
-              <source srcset="https://source.unsplash.com/featured/300x400" />
+              <source
+                srcset="
+                  https://images.unsplash.com/photo-1523800503107-5bc3ba2a6f81?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80
+                "
+              />
               <img
-                src="https://source.unsplash.com/featured/300x400"
+                src="https://images.unsplash.com/photo-1523800503107-5bc3ba2a6f81?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
                 alt="article image"
-                class="max-w-full h-auto rounded object-cover"
+                class="max-w-xs h-auto rounded object-cover"
                 loading="lazy"
                 width="300"
                 height="400"
@@ -276,25 +293,38 @@
             </picture>
           </figure>
           <div
-            class="article-details flex flex-col gap-4 justify-center lg:w-1/8"
+            class="article-details flex lg:w-3/4 flex-col gap-4 justify-center"
           >
             <h2 class="article-title font-bold text-3xl pb-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente,
-              molestiae!
+              What are <code>map</code>, <code>forEach</code>,
+              <code>filter</code>, and <code>find</code>?
             </h2>
             <p class="article-description text-gray-500 pb-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nemo
-              alias totam quos distinctio qui fuga rem unde, blanditiis officia.
-              Itaque nisi ab libero possimus vitae modi atque accusamus
-              perspiciatis?
+              <code>forEach</code>, is used to execute the same code on every
+              element in an array but does not change the array and it returns
+              undefined.
+              <br />
+              <code>map</code> executes the same code on every element in an
+              array and returns a new array with the updated elements.
+              <br />
+              <code>filter</code> checks every element in an array to see if it
+              meets a certain criteria and returns a new array with the elements
+              that return <code>truthy</code> for the criteria.
+              <br />
+              <code>find</code> is also a search function but they differ in one
+              small detail - this function returns only one match in an array.
+              If in an array is more than one result, the function will return
+              the first that has matched.
             </p>
             <div class="article-metadata flex flex-wrap gap-8 justify-between">
               <!--#region - start of - author-info -->
-              <div class="author-info flex items-center gap-4">
+              <div class="lg:w-1/4 author-info flex items-center gap-4">
                 <picture class="flex self-center article-author-image">
-                  <source srcset="https://source.unsplash.com/featured/64x64" />
+                  <source
+                    srcset="https://bilashism.github.io/img/avater-up-640.webp"
+                  />
                   <img
-                    src="https://source.unsplash.com/featured/64x64"
+                    src="https://bilashism.github.io/img/avater-up-640.webp"
                     alt="article author image"
                     class="w-16 h-16 rounded-full object-cover aspect-square"
                     loading="lazy"
@@ -306,14 +336,14 @@
                 </picture>
                 <div class="flex flex-col gap-1">
                   <h3 class="font-bold text-lg article-author-name capitalize">
-                    jhon doe
+                    Md. Taifuzzaman Bilash
                   </h3>
-                  <time class="text-sm text-gray-500">Jan 10, 2022</time>
+                  <time class="text-sm text-gray-500">March 22, 2022</time>
                 </div>
               </div>
               <!--#endregion - end of - author-info -->
               <!--#region - start of - views-info -->
-              <div class="views-info flex items-center gap-4">
+              <div class="lg:w-1/5 views-info flex items-center gap-4">
                 <svg
                   class="w-6 h-6"
                   viewBox="0 0 25 24"
@@ -333,12 +363,12 @@
                 </svg>
                 <span
                   class="view-count uppercase text-gray-600 font-bold text-lg"
-                  >1.5M</span
+                  >1.85k</span
                 >
               </div>
               <!--#endregion - end of - views-info -->
               <!--#region - start of - reviews-info -->
-              <div class="reviews-info flex items-center gap-2">
+              <div class="lg:w-1/4 reviews-info flex items-center gap-2">
                 <svg
                   class="w-6 h-6"
                   viewBox="0 0 21 21"
@@ -403,16 +433,23 @@
             </div>
           </div>
         </article>
+        <!--#endregion - end of - single article -->
+
+        <!--#region - start of - single article -->
         <article
           class="single-article flex gap-8 flex-col lg:flex-row p-4 bg-white rounded-lg"
         >
           <figure class="flex lg:w-1/4 justify-center lg:justify-start">
             <picture class="flex">
-              <source srcset="https://source.unsplash.com/featured/300x400" />
+              <source
+                srcset="
+                  https://images.unsplash.com/photo-1581472723648-909f4851d4ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80
+                "
+              />
               <img
-                src="https://source.unsplash.com/featured/300x400"
+                src="https://images.unsplash.com/photo-1581472723648-909f4851d4ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
                 alt="article image"
-                class="max-w-full h-auto rounded object-cover"
+                class="max-w-xs h-auto rounded object-cover"
                 loading="lazy"
                 width="300"
                 height="400"
@@ -422,25 +459,29 @@
             </picture>
           </figure>
           <div
-            class="article-details flex flex-col gap-4 justify-center lg:w-1/8"
+            class="article-details flex lg:w-3/4 flex-col gap-4 justify-center"
           >
             <h2 class="article-title font-bold text-3xl pb-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente,
-              molestiae!
+              Why we use template string in javascript?
             </h2>
             <p class="article-description text-gray-500 pb-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nemo
-              alias totam quos distinctio qui fuga rem unde, blanditiis officia.
-              Itaque nisi ab libero possimus vitae modi atque accusamus
-              perspiciatis?
+              Before ES6, you use single quotes (<code>'</code>) or double
+              quotes (<code>"</code>) to wrap a string literal. And the strings
+              have very limited functionality.
+              <br />
+              To enable us to solve more complex problems, ES6 template literals
+              provide the syntax that allows us to work with strings more safely
+              and cleanly.
             </p>
             <div class="article-metadata flex flex-wrap gap-8 justify-between">
               <!--#region - start of - author-info -->
-              <div class="author-info flex items-center gap-4">
+              <div class="lg:w-1/4 author-info flex items-center gap-4">
                 <picture class="flex self-center article-author-image">
-                  <source srcset="https://source.unsplash.com/featured/64x64" />
+                  <source
+                    srcset="https://bilashism.github.io/img/avater-up-640.webp"
+                  />
                   <img
-                    src="https://source.unsplash.com/featured/64x64"
+                    src="https://bilashism.github.io/img/avater-up-640.webp"
                     alt="article author image"
                     class="w-16 h-16 rounded-full object-cover aspect-square"
                     loading="lazy"
@@ -452,14 +493,14 @@
                 </picture>
                 <div class="flex flex-col gap-1">
                   <h3 class="font-bold text-lg article-author-name capitalize">
-                    jhon doe
+                    Md. Taifuzzaman Bilash
                   </h3>
-                  <time class="text-sm text-gray-500">Jan 10, 2022</time>
+                  <time class="text-sm text-gray-500">March 28, 2022</time>
                 </div>
               </div>
               <!--#endregion - end of - author-info -->
               <!--#region - start of - views-info -->
-              <div class="views-info flex items-center gap-4">
+              <div class="lg:w-1/5 views-info flex items-center gap-4">
                 <svg
                   class="w-6 h-6"
                   viewBox="0 0 25 24"
@@ -479,12 +520,12 @@
                 </svg>
                 <span
                   class="view-count uppercase text-gray-600 font-bold text-lg"
-                  >1.5M</span
+                  >21.5k</span
                 >
               </div>
               <!--#endregion - end of - views-info -->
               <!--#region - start of - reviews-info -->
-              <div class="reviews-info flex items-center gap-2">
+              <div class="lg:w-1/4 reviews-info flex items-center gap-2">
                 <svg
                   class="w-6 h-6"
                   viewBox="0 0 21 21"
@@ -549,16 +590,23 @@
             </div>
           </div>
         </article>
+        <!--#endregion - end of - single article -->
+
+        <!--#region - start of - single article -->
         <article
           class="single-article flex gap-8 flex-col lg:flex-row p-4 bg-white rounded-lg"
         >
           <figure class="flex lg:w-1/4 justify-center lg:justify-start">
             <picture class="flex">
-              <source srcset="https://source.unsplash.com/featured/300x400" />
+              <source
+                srcset="
+                  https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1489&q=80
+                "
+              />
               <img
-                src="https://source.unsplash.com/featured/300x400"
+                src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1489&q=80"
                 alt="article image"
-                class="max-w-full h-auto rounded object-cover"
+                class="max-w-xs h-auto rounded object-cover"
                 loading="lazy"
                 width="300"
                 height="400"
@@ -568,25 +616,35 @@
             </picture>
           </figure>
           <div
-            class="article-details flex flex-col gap-4 justify-center lg:w-1/8"
+            class="article-details flex lg:w-3/4 flex-col gap-4 justify-center"
           >
             <h2 class="article-title font-bold text-3xl pb-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente,
-              molestiae!
+              Difference between regular function and arrow function in
+              JavaScript
             </h2>
             <p class="article-description text-gray-500 pb-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nemo
-              alias totam quos distinctio qui fuga rem unde, blanditiis officia.
-              Itaque nisi ab libero possimus vitae modi atque accusamus
-              perspiciatis?
+              Inside of a regular JavaScript function, <code>this</code> value
+              (aka the execution context) is dynamic.
+              <br />
+              The arrow function doesn't define its own execution context.
+              <br />
+              <br />
+              the regular function can easily construct objects.
+              <br />
+              A consequence of this resolved lexically is that an arrow function
+              cannot be used as a constructor.
+              <br />
+              <br />
             </p>
             <div class="article-metadata flex flex-wrap gap-8 justify-between">
               <!--#region - start of - author-info -->
-              <div class="author-info flex items-center gap-4">
+              <div class="lg:w-1/4 author-info flex items-center gap-4">
                 <picture class="flex self-center article-author-image">
-                  <source srcset="https://source.unsplash.com/featured/64x64" />
+                  <source
+                    srcset="https://bilashism.github.io/img/avater-up-640.webp"
+                  />
                   <img
-                    src="https://source.unsplash.com/featured/64x64"
+                    src="https://bilashism.github.io/img/avater-up-640.webp"
                     alt="article author image"
                     class="w-16 h-16 rounded-full object-cover aspect-square"
                     loading="lazy"
@@ -598,14 +656,14 @@
                 </picture>
                 <div class="flex flex-col gap-1">
                   <h3 class="font-bold text-lg article-author-name capitalize">
-                    jhon doe
+                    Md. Taifuzzaman Bilash
                   </h3>
-                  <time class="text-sm text-gray-500">Jan 10, 2022</time>
+                  <time class="text-sm text-gray-500">March 24, 2022</time>
                 </div>
               </div>
               <!--#endregion - end of - author-info -->
               <!--#region - start of - views-info -->
-              <div class="views-info flex items-center gap-4">
+              <div class="lg:w-1/5 views-info flex items-center gap-4">
                 <svg
                   class="w-6 h-6"
                   viewBox="0 0 25 24"
@@ -625,12 +683,12 @@
                 </svg>
                 <span
                   class="view-count uppercase text-gray-600 font-bold text-lg"
-                  >1.5M</span
+                  >10.5k</span
                 >
               </div>
               <!--#endregion - end of - views-info -->
               <!--#region - start of - reviews-info -->
-              <div class="reviews-info flex items-center gap-2">
+              <div class="lg:w-1/4 reviews-info flex items-center gap-2">
                 <svg
                   class="w-6 h-6"
                   viewBox="0 0 21 21"
@@ -695,6 +753,7 @@
             </div>
           </div>
         </article>
+        <!--#endregion - end of - single article -->
       </div>
     </main>
     <!--#endregion - end of - main -->
