@@ -68,6 +68,7 @@ const articleMarkup = (
                 }
                 decoding="async"
                 fetchpriority="low"
+                crossorigin
               />
             </picture>
           </figure>
@@ -92,6 +93,7 @@ const articleMarkup = (
                     height="64"
                     decoding="async"
                     fetchpriority="low"
+                    crossorigin
                   />
                 </picture>
                 <div class="flex flex-col gap-1">
@@ -240,6 +242,7 @@ const loadCategories = async () => {
     const categoryButtonsContainer = document.querySelector(
       ".category-buttons-container"
     );
+    if (categoryButtonsContainer === null) return;
     const articlesContainer = document.querySelector(".articles-container");
     const categoriesUrl = `https://openapi.programming-hero.com/api/news/categories`;
     const response = await fetch(categoriesUrl);
