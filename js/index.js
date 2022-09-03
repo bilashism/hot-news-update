@@ -11,6 +11,7 @@ const afterContentLoad = () => {
   //#endregion - end of - mobile navigation
   loadCategories();
 };
+document.addEventListener("DOMContentLoaded", afterContentLoad);
 const spinnerLoader = `<picture class="flex justify-center grow spinner-loader">
 <img
   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='margin: auto; background: none; display: block; shape-rendering: auto;' width='78px' height='78px' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid'%3E%3Ccircle cx='50' cy='50' fill='none' stroke='%23ebbc50' stroke-width='10' r='35' stroke-dasharray='164.93361431346415 56.97787143782138'%3E%3CanimateTransform attributeName='transform' type='rotate' repeatCount='indefinite' dur='1s' values='0 50 50;360 50 50' keyTimes='0;1'%3E%3C/animateTransform%3E%3C/circle%3E%3C/svg%3E"
@@ -203,7 +204,7 @@ const articleMarkup = (
           </div>
         </article>
 `;
-document.addEventListener("DOMContentLoaded", afterContentLoad);
+
 const loadCategories = async () => {
   try {
     const categoryButtonsContainer = document.querySelector(
@@ -255,6 +256,7 @@ const loadCategories = async () => {
       );
       //#endregion - end of - handle category buttons click
     });
+    document.querySelector(".news-category-button").click();
   } catch (error) {
     console.error(error);
   }
@@ -334,7 +336,6 @@ const loadArticleDetails = async postId => {
     emptyElement(articleReadMoreContainer);
 
     const { author, details, image_url, title, total_view, _id } = data.data[0];
-    console.log("image_url", image_url);
     articleReadMoreContainer.insertAdjacentHTML(
       "beforeend",
       articleMarkup(author, details, image_url, title, total_view, false)
