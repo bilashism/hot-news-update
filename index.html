@@ -16,6 +16,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/index.css" />
+    <script src="./js/utilities/modal.js" defer></script>
     <script src="./js/index.js" defer></script>
   </head>
 
@@ -324,6 +325,7 @@
                 class="text-purple-600 hover:text-purple-900 transition-colors"
                 type="button"
                 aria-label="read more about this article"
+                data-modal-ref="article-read-more"
               >
                 <svg
                   class="w-6 h-6 fill-current"
@@ -345,6 +347,43 @@
           </div>
         </article>
       </div>
+
+      <!--#region - start of - read-more-modal  -->
+      <div data-modal-id="article-read-more" class="modal-bg">
+        <div class="modal-container">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="article-read-more-container">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
+                mollitia aliquid nesciunt rerum quaerat. Consequatur nostrum
+                aliquam magni aliquid ad odit debitis itaque? Aperiam animi
+                numquam deserunt temporibus non tempora!
+              </div>
+            </div>
+            <div class="modal-footer border-0"></div>
+          </div>
+
+          <div class="modal-closer-wrapper">
+            <button
+              type="button"
+              class="modal-closer"
+              aria-label="modal-closer"
+              data-modal-closer
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewbox="0 0 16 16"
+              >
+                <path
+                  d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--#endregion - end of - read-more-modal -->
     </main>
     <!--#endregion - end of - main -->
 
