@@ -71,7 +71,13 @@ const singleArticle = (
                   <h3 class="font-bold text-lg article-author-name capitalize">${
                     name !== null ? name : `No data found!`
                   }</h3>
-                  <time class="text-sm text-gray-500" datetime="${published_date}">${published_date}</time>
+                  <time class="text-sm text-gray-500" ${
+                    published_date !== null
+                      ? `datetime="${published_date}"`
+                      : ""
+                  }>${
+  published_date !== null ? published_date : `No data found!`
+}</time>
                 </div>
               </div>
               <!--#endregion - end of - author-info -->
@@ -236,7 +242,10 @@ const loadCategories = async () => {
 
       emptyElement(articlesContainer);
       articlesContainer.insertAdjacentHTML("beforeend", spinnerLoader);
-      loadCategoryItems(newsCategoryButton.dataset.categoryId);
+      loadCategoryItems(
+        newsCategoryButton.dataset.categoryId,
+        newsCategoryButton.innerText.toLowerCase()
+      );
       //#endregion - end of - handle category buttons click
     });
   } catch (error) {
@@ -244,12 +253,17 @@ const loadCategories = async () => {
   }
 };
 
-const loadCategoryItems = async categoryId => {
+const loadCategoryItems = async (categoryId, itemName) => {
   try {
     const articlesContainer = document.querySelector(".articles-container");
+    const categoryCount = document.querySelector(".category-count");
+    const categoryName = document.querySelector(".category-name");
     const selectedCategoryUrl = `https://openapi.programming-hero.com/api/news/category/${categoryId}`;
     const response = await fetch(selectedCategoryUrl);
     const data = await response.json();
+
+    categoryCount.innerText = data.data.length;
+    categoryName.innerText = itemName;
 
     emptyElement(articlesContainer);
     if (data.data.length === 0) {
