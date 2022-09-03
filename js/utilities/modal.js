@@ -1,3 +1,7 @@
+/**
+ * It adds event listeners to the modal openers and closers, and when the user clicks on the openers,
+ * it shows the modal, and when the user clicks on the closers, it hides the modal
+ */
 const initModals = () => {
   //#region - start of - modal
   //#region - start of - modal selectors

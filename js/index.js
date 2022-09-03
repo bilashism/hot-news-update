@@ -1,3 +1,7 @@
+/**
+ * When the page loads, add an event listener to each button that toggles the visibility of the element
+ * with the id that matches the button's data-collapse-toggle attribute.
+ */
 const afterContentLoad = () => {
   //#region - start of - mobile navigation
   const collapseTogglers = document.querySelectorAll("[data-collapse-toggle]");
@@ -12,6 +16,7 @@ const afterContentLoad = () => {
   loadCategories();
 };
 document.addEventListener("DOMContentLoaded", afterContentLoad);
+/* Creating a spinner loader. */
 const spinnerLoader = `<picture class="flex justify-center grow spinner-loader">
 <img
   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='margin: auto; background: none; display: block; shape-rendering: auto;' width='78px' height='78px' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid'%3E%3Ccircle cx='50' cy='50' fill='none' stroke='%23ebbc50' stroke-width='10' r='35' stroke-dasharray='164.93361431346415 56.97787143782138'%3E%3CanimateTransform attributeName='transform' type='rotate' repeatCount='indefinite' dur='1s' values='0 50 50;360 50 50' keyTimes='0;1'%3E%3C/animateTransform%3E%3C/circle%3E%3C/svg%3E"
@@ -20,6 +25,16 @@ const spinnerLoader = `<picture class="flex justify-center grow spinner-loader">
   height="200"
 />
 </picture>`;
+/**
+ * It takes in an object, a string, a string, a string, a string, a string, and a boolean. It returns a
+ * string
+ * @param details - The article's description
+ * @param thumbnail_url - The image url
+ * @param title - The title of the article
+ * @param total_view - total number of views
+ * @param postDetailsId - This is the id of the post that you want to show in the modal.
+ * @param [isDetailed=false] - boolean - if true, the article will be displayed in a different way
+ */
 const articleMarkup = (
   { img, name, published_date },
   details,
@@ -217,6 +232,9 @@ const articleMarkup = (
         </article>
 `;
 
+/**
+ * It fetches all of the categories from the API, sorts them alphabetically, and then adds them to the DOM
+ */
 const loadCategories = async () => {
   try {
     const categoryButtonsContainer = document.querySelector(
@@ -268,12 +286,18 @@ const loadCategories = async () => {
       );
       //#endregion - end of - handle category buttons click
     });
+    /* Clicking the button with the class of news-category-button to load first category's data automatically. */
     document.querySelector(".news-category-button").click();
   } catch (error) {
     console.error(error);
   }
 };
 
+/**
+ * It fetches data from an API, sorts the data, and then displays the data in a modal
+ * @param categoryId - the id of the category
+ * @param itemName - the name of the category
+ */
 const loadCategoryItems = async (categoryId, itemName) => {
   try {
     const articlesContainer = document.querySelector(".articles-container");
@@ -337,6 +361,9 @@ const loadCategoryItems = async (categoryId, itemName) => {
     console.error(error);
   }
 };
+/**
+ * It fetches data from an API and displays it on the page
+ */
 const loadArticleDetails = async postId => {
   try {
     const articleReadMoreContainer = document.querySelector(
