@@ -179,23 +179,26 @@
 
       <!--#region - start of - read-more-modal  -->
       <div data-modal-id="article-read-more" class="modal-bg">
-        <div class="modal-container">
+        <div class="container">
           <div class="modal-content">
             <div class="modal-body">
               <div class="article-read-more-container">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                mollitia aliquid nesciunt rerum quaerat. Consequatur nostrum
-                aliquam magni aliquid ad odit debitis itaque? Aperiam animi
-                numquam deserunt temporibus non tempora!
+                <picture class="flex justify-center grow spinner-loader">
+                  <img
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='margin: auto; background: none; display: block; shape-rendering: auto;' width='78px' height='78px' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid'%3E%3Ccircle cx='50' cy='50' fill='none' stroke='%23ebbc50' stroke-width='10' r='35' stroke-dasharray='164.93361431346415 56.97787143782138'%3E%3CanimateTransform attributeName='transform' type='rotate' repeatCount='indefinite' dur='1s' values='0 50 50;360 50 50' keyTimes='0;1'%3E%3C/animateTransform%3E%3C/circle%3E%3C/svg%3E"
+                    alt="loading image"
+                    width="100"
+                    height="100"
+                  />
+                </picture>
               </div>
             </div>
-            <div class="modal-footer border-0"></div>
           </div>
 
           <div class="modal-closer-wrapper">
             <button
               type="button"
-              class="modal-closer"
+              class="modal-closer text-purple-800"
               aria-label="modal-closer"
               data-modal-closer
             >

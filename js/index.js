@@ -15,16 +15,17 @@ const spinnerLoader = `<picture class="flex justify-center grow spinner-loader">
 <img
   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='margin: auto; background: none; display: block; shape-rendering: auto;' width='78px' height='78px' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid'%3E%3Ccircle cx='50' cy='50' fill='none' stroke='%23ebbc50' stroke-width='10' r='35' stroke-dasharray='164.93361431346415 56.97787143782138'%3E%3CanimateTransform attributeName='transform' type='rotate' repeatCount='indefinite' dur='1s' values='0 50 50;360 50 50' keyTimes='0;1'%3E%3C/animateTransform%3E%3C/circle%3E%3C/svg%3E"
   alt="loading image"
-  width="40"
-  height="40"
+  width="200"
+  height="200"
 />
 </picture>`;
-const singleArticle = (
+const articleMarkup = (
   { img, name, published_date },
   details,
   thumbnail_url,
   title,
-  total_view
+  total_view,
+  postDetailsId
 ) => `
 <article
           class="single-article flex gap-8 flex-col lg:flex-row p-4 bg-white rounded-lg"
@@ -48,9 +49,7 @@ const singleArticle = (
             class="article-details flex lg:w-3/4 flex-col gap-4 justify-center"
           >
             <h2 class="article-title font-bold text-3xl pb-6">${title}</h2>
-            <p class="article-description text-gray-500 pb-6">${
-              details.length <= 300 ? details : details.slice(0, 300) + "..."
-            }</p>
+            <p class="article-description text-gray-500 pb-6">${details}</p>
             <div class="article-metadata flex flex-wrap gap-8 justify-between">
               <!--#region - start of - author-info -->
               <div class="lg:w-1/4 author-info flex items-center gap-4">
@@ -170,11 +169,16 @@ const singleArticle = (
               </div>
               <!--#endregion - end of - reviews-info -->
               <!--#region - start of - read-more -->
+              ${
+                postDetailsId === false
+                  ? ""
+                  : `
               <button
                 class="lg:w-14 text-purple-600 hover:text-purple-900 transition-colors"
                 type="button"
                 aria-label="read more about this article"
                 data-modal-ref="article-read-more"
+                data-post-details-id="${postDetailsId}"
               >
                 <svg
                   class="w-6 h-6 fill-current"
@@ -191,6 +195,9 @@ const singleArticle = (
                   />
                 </svg>
               </button>
+              `
+              }
+              
               <!--#endregion - end of - read-more -->
             </div>
           </div>
@@ -249,7 +256,7 @@ const loadCategories = async () => {
       //#endregion - end of - handle category buttons click
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
@@ -283,18 +290,56 @@ const loadCategoryItems = async (categoryId, itemName) => {
       }
       return 0;
     });
-    // emptyElement(articlesContainer);
+    // console.log(sortedByViewsDesArr);
 
     sortedByViewsDesArr.forEach(
-      ({ author, details, thumbnail_url, title, total_view }) => {
+      ({ author, details, thumbnail_url, title, total_view, _id }) => {
         articlesContainer.insertAdjacentHTML(
           "beforeend",
-          singleArticle(author, details, thumbnail_url, title, total_view)
+          articleMarkup(
+            author,
+            details.slice(0, 300) + "...",
+            thumbnail_url,
+            title,
+            total_view,
+            _id
+          )
         );
       }
     );
+
     initModals();
+
+    articlesContainer
+      .querySelectorAll("[data-post-details-id]")
+      .forEach(btn => {
+        btn.addEventListener("click", () => {
+          //#region - start of - handle post details modal
+          loadArticleDetails(btn.dataset.postDetailsId);
+          //#endregion - end of - handle post details modal
+        });
+      });
   } catch (error) {
-    console.log(error);
+    console.error(error);
+  }
+};
+const loadArticleDetails = async postId => {
+  try {
+    const articleReadMoreContainer = document.querySelector(
+      ".article-read-more-container"
+    );
+    const selectedCategoryUrl = `https://openapi.programming-hero.com/api/news/${postId}`;
+    const response = await fetch(selectedCategoryUrl);
+    const data = await response.json();
+    emptyElement(articleReadMoreContainer);
+
+    const { author, details, image_url, title, total_view, _id } = data.data[0];
+    console.log("image_url", image_url);
+    articleReadMoreContainer.insertAdjacentHTML(
+      "beforeend",
+      articleMarkup(author, details, image_url, title, total_view, false)
+    );
+  } catch (error) {
+    console.error(error);
   }
 };
