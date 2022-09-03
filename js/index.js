@@ -1,4 +1,11 @@
 const afterContentLoad = () => {
-  console.log("loaded");
+  const collapseTogglers = document.querySelectorAll("[data-collapse-toggle]");
+  collapseTogglers.forEach(button => {
+    button.addEventListener("click", () => {
+      document
+        .querySelector(`#${button.dataset.collapseToggle}`)
+        .classList.toggle("hidden");
+    });
+  });
 };
 document.addEventListener("DOMContentLoaded", afterContentLoad);
