@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html {
+  scrollbar-gutter: stable;
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+/*#region - start of - modal */
+.modal-bg {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(20px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  overflow: auto;
+  transform: scale(0.95);
+  opacity: 0;
+  z-index: -10000;
+  /* visibility: hidden; */
+  pointer-events: none;
+  content-visibility: auto;
+  /* transition: all 0.3s ease; */
+  transition-timing-function: ease;
+  transition-duration: 0.3s;
+  transition-property: transform, opacity, -webkit-backdrop-filter;
+  transition-property: transform, opacity, backdrop-filter;
+  transition-property: transform, opacity, backdrop-filter, -webkit-backdrop-filter;
+  transition-property: transform, opacity, backdrop-filter,
+    -webkit-backdrop-filter;
+  transition-property: transform, opacity, backdrop-filter,
+    -webkit-backdrop-filter;
+  transition-property: transform, opacity, backdrop-filter,
+    -webkit-backdrop-filter;
+  transition-property: transform, opacity, backdrop-filter,
+    -webkit-backdrop-filter;
+  transition-property: transform, opacity, backdrop-filter,
+    -webkit-backdrop-filter;
+  transition-property: transform, opacity, backdrop-filter,
+    -webkit-backdrop-filter;
+  transition-property: transform, opacity, backdrop-filter,
+    -webkit-backdrop-filter;
+  transition-property: transform, opacity, backdrop-filter,
+    -webkit-backdrop-filter;
+  transition-property: transform, opacity, backdrop-filter,
+    -webkit-backdrop-filter;
+  transition-property: transform, opacity, backdrop-filter,
+    -webkit-backdrop-filter;
+  transition-property: transform, opacity, backdrop-filter,
+    -webkit-backdrop-filter;
+  transition-property: transform, opacity, backdrop-filter,
+    -webkit-backdrop-filter;
+}
+
+.modal-bg.modal-shown {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 10000;
+  /* visibility: visible; */
+  pointer-events: auto;
+}
+
+.modal-container {
+  position: relative;
+  flex-grow: 1;
+  max-width: 900px;
+  margin: auto;
+}
+
+.modal-closer-wrapper {
+  position: absolute;
+  /* width: 100%; */
+  width: 4rem;
+  top: 0.5rem;
+  /* left: 0; */
+  right: 0;
+  z-index: 100;
+  text-align: right;
+  padding-right: 1.5rem;
+  margin-top: 0.75rem;
+}
+
+.modal-closer {
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  background-color: transparent;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-closer svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-closer:hover svg {
+  color: var(--theme-color, purple);
+}
+
+/*#endregion - end of - modal */

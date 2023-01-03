@@ -1,0 +1,29 @@
+{
+  "name": "hot-news-update",
+  "version": "1.0.0",
+  "description": "hot-news-update",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "index:css": "npx tailwindcss -i ./css/vendor/index.css -o ./css/index.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bilashism/hot-news-update.git"
+  },
+  "keywords": [],
+  "author": "Md. Taifuzzaman Bilash <bilashism@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bilashism/hot-news-update/issues"
+  },
+  "homepage": "https://github.com/bilashism/hot-news-update#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.1.8",
+    "vite": "^3.0.9",
+    "vite-plugin-imagemin": "^0.6.1",
+    "vite-plugin-mkcert": "^1.9.0"
+  }
+}
